@@ -172,7 +172,7 @@ class SettingsFragment : Fragment() {
 
     private fun pickImage() {
         val intent = Intent()
-        intent.type = "image/"
+        intent.type = "image/*"
         intent.action = Intent.ACTION_GET_CONTENT
         startActivityForResult(intent, RequestCode)
     }
