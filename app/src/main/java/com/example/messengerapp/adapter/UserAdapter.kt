@@ -3,6 +3,7 @@ package com.example.messengerapp.adapter
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -62,6 +63,7 @@ class UserAdapter (mContext: Context, mUsersList: List<Users>, isChatCheck: Bool
                     // Pošalji poruku
                     val intent = Intent(mContext, MessageChatActivity::class.java)
                     intent.putExtra("visit_id", user.getUid())
+                    Log.e("VISIT", user.getUid())
                     mContext.startActivity(intent)
                 }
 

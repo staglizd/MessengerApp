@@ -11,12 +11,14 @@ import com.example.messengerapp.Model.ChatList
 import com.example.messengerapp.Model.Users
 import com.example.messengerapp.R
 import com.example.messengerapp.adapter.UserAdapter
+import com.example.messengerapp.notifications.Token
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.ktx.Firebase
 
 /**
@@ -64,7 +66,15 @@ class ChatFragment : Fragment() {
             }
         })
 
+        updateToken(FirebaseInstanceId.getInstance().token)
+
         return view
+    }
+
+    private fun updateToken(token: String?) {
+        val ref = FirebaseDatabase.getInstance().reference.child("Tokens")
+        val token1 = Token(token!!)
+        ref.child(firebaseUser!!.uid).setValue(token1)
     }
 
     private fun retrieveChatList() {
