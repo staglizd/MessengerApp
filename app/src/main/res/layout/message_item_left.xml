@@ -34,6 +34,6 @@
         android:id="@+id/text_seen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="viđeno"
+        android:visibility="gone"
         android:layout_below="@id/show_text_message"></TextView>
 </RelativeLayout>
